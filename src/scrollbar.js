@@ -71,7 +71,7 @@ export default class ScrollBar extends Component {
     }
 
     render() {
-        const { children, className, ...other } = this.props;
+        const { children, className, id } = this.props;
 
         return (
             <div
@@ -79,7 +79,7 @@ export default class ScrollBar extends Component {
                 ref={(ref) => {
                     this._container = ref;
                 }}
-                {...other}
+                id={id}
             >
                 {children}
             </div>
@@ -88,6 +88,7 @@ export default class ScrollBar extends Component {
 }
 
 ScrollBar.defaultProps = {
+    id: '',
     className: '',
     option: undefined,
     onScrollY: undefined,
@@ -103,6 +104,7 @@ ScrollBar.defaultProps = {
 };
 
 ScrollBar.propTypes = {
+    id: PropTypes.string,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     option: PropTypes.object,

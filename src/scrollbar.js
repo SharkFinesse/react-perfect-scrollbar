@@ -71,10 +71,16 @@ export default class ScrollBar extends Component {
     }
 
     render() {
-        const { children, className } = this.props;
+        const { children, className, ...other } = this.props;
 
         return (
-            <div className={`scrollbar-container ${className}`} ref={(ref) => { this._container = ref; }}>
+            <div
+                className={`scrollbar-container ${className}`}
+                ref={(ref) => {
+                    this._container = ref;
+                }}
+                {...other}
+            >
                 {children}
             </div>
         );
